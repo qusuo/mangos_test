@@ -135,8 +135,8 @@ void DBServer::SetInitialWorldSettings()
 	//// No SQL injection as values are treated as integers
 
 	//// not send custom type REALM_FFA_PVP to realm list
-	//uint32 server_type = IsFFAPvPRealm() ? uint32(REALM_TYPE_PVP) : getConfig(G_CFG_UINT32_GAME_TYPE);
-	//uint32 realm_zone = getConfig(G_CFG_UINT32_REALM_ZONE);
+	//uint32 server_type = IsFFAPvPRealm() ? uint32(REALM_TYPE_PVP) : getConfig(D_CFG_UINT32_GAME_TYPE);
+	//uint32 realm_zone = getConfig(D_CFG_UINT32_REALM_ZONE);
 	////LoginDatabase.PExecute("UPDATE realmlist SET icon = %u, timezone = %u WHERE id = '%u'", server_type, realm_zone, realmID);
 
 	/////- Remove the bones (they should not exist in DB though) and old corpses after a restart
@@ -500,7 +500,7 @@ void DBServer::SetInitialWorldSettings()
 	//	realmID, uint64(m_startTime), isoDate);
 
 	//m_timers[GUPDATE_AUCTIONS].SetInterval(MINUTE * IN_MILLISECONDS);
-	//m_timers[GUPDATE_UPTIME].SetInterval(getConfig(G_CFG_UINT32_UPTIME_UPDATE)*MINUTE * IN_MILLISECONDS);
+	//m_timers[DUPDATE_UPTIME].SetInterval(getConfig(D_CFG_UINT32_UPTIME_UPDATE)*MINUTE * IN_MILLISECONDS);
 	//// Update "uptime" table based on configuration entry in minutes.
 	//m_timers[GUPDATE_CORPSES].SetInterval(20 * MINUTE * IN_MILLISECONDS);
 	//m_timers[GUPDATE_DELETECHARS].SetInterval(DAY * IN_MILLISECONDS); // check for chars to delete every day
@@ -623,7 +623,7 @@ void DBServer::DetectDBCLang()
 void DBServer::Update(uint32 diff)
 {
 	///- Update the different timers
-	for (int i = 0; i < GUPDATE_COUNT; ++i)
+	for (int i = 0; i < DUPDATE_COUNT; ++i)
 	{
 		IntervalTimer * ITime = sConfigMgr.GetTimers(i);
 		if (ITime == NULL)
@@ -669,12 +669,12 @@ void DBServer::Update(uint32 diff)
 	sSessionMgr.UpdateSessions();
 
 	/// <li> Update uptime table
-	//if (m_timers[GUPDATE_UPTIME].Passed())
+	//if (m_timers[DUPDATE_UPTIME].Passed())
 	//{
 	//	uint32 tmpDiff = uint32(m_gameTime - m_startTime);
 	//	uint32 maxClientsNum = GetMaxActiveSessionCount();
 
-	//	m_timers[GUPDATE_UPTIME].Reset();
+	//	m_timers[DUPDATE_UPTIME].Reset();
 	//	//LoginDatabase.PExecute("UPDATE uptime SET uptime = %u, maxplayers = %u WHERE realmid = %u AND starttime = " UI64FMTD, tmpDiff, maxClientsNum, realmID, uint64(m_startTime));
 	//}
 

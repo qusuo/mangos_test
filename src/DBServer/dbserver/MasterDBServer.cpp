@@ -47,12 +47,7 @@
 #include "Database/DatabaseEnv.h"
 #include "Policies/Singleton.h"
 #include "Network/Listener.hpp"
-//#include "Network/Socket.hpp"
 #include "Network/connecter.hpp"
-//#include "network/LogicSocket.h"
-
-//#include "../LogicServer/network/logicdef.h"
-
 
 #include <memory>
 
@@ -111,8 +106,8 @@ int MasterDBServer::Run()
 	_HookSignals();
 
 	///- Launch DBServerRunnable thread
-	MaNGOS::Thread gateway_thread(new DBServerRunnable);
-	gateway_thread.setPriority(MaNGOS::Priority_Highest);
+	MaNGOS::Thread db_thread(new DBServerRunnable);
+	db_thread.setPriority(MaNGOS::Priority_Highest);
 
 #ifdef ONLY_NETWORK
 	// set realmbuilds depend on mangosd expected builds, and set server online
@@ -180,17 +175,9 @@ int MasterDBServer::Run()
 #endif
 
 	{
-		//register 2 logic server
-		const std::string connIP = sConfig.GetStringDefault("LogicServerIP", "127.0.0.1");
-		std::map<std::string, uint32> addr_map;
-		addr_map[connIP] = sConfigMgr.getConfig(G_CFG_UINT32_PORT_LOGIC);
-		MaNGOS::Connecter<DBServerSocket> conn_logic(addr_map);
-		while (!conn_logic.IsConnected())
-			std::this_thread::sleep_for(std::chrono::seconds(1));
-
 		//listen 2 players
-		//MaNGOS::Listener<WorldSocket> listener(sWorld.getConfig(G_CFG_UINT32_PORT_WORLD), 8);
-		MaNGOS::Listener<DBServerSocket> listener(sConfigMgr.getConfig(G_CFG_UINT32_PORT_GATEWAY), 2);
+		const std::string listenIP = sConfig.GetStringDefault("BindIP", "0.0.0.0");
+		MaNGOS::Listener<DBServerSocket> listener(sConfigMgr.getConfig(D_CFG_UINT32_PORT_DBSERVER), 4);
 
 		//Regist2Server();
 		// wait for shut down and then let things go out of scope to close them down
@@ -206,7 +193,7 @@ int MasterDBServer::Run()
 
 	// when the main thread closes the singletons get unloaded
 	// since worldrunnable uses them, it will crash if unloaded after MasterDBServer
-	gateway_thread.wait();
+	db_thread.wait();
 
 	//close socket server 2 server
 	Unregist2Server();

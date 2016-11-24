@@ -36,7 +36,7 @@ bool MapSessionFilter::Process(WorldPacket* packet)
 
 // we should process ALL packets when player is not in world/logged in
 // OR packet handler is not thread-safe!
-bool WorldSessionFilter::Process(WorldPacket* packet)
+bool DBSessionFilter::Process(WorldPacket* packet)
 {
 	OpcodeHandler_g const& opHandle = opcodeTable_g[packet->GetOpcode()];
 	// check if packet handler is supposed to be safe

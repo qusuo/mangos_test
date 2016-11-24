@@ -72,4 +72,10 @@ enum RealmZone
 	REALM_ZONE_CN9 = 29                           // basic-Latin at create, any at login
 };
 
+/*
+* 为每个服务器分配一个连接线程
+* 1、logic server; 2、login server; 3、GM server; 4、global server
+*/
+#define DBSERVER_CONNECT_NUM 4
+
 #endif //__COMMDEF_H

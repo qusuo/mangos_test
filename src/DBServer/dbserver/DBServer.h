@@ -133,7 +133,7 @@ class DBServer
         uint32 GetDateLastMaintenanceDay() const
         {
             uint32 today = GetDateToday();
-			uint32 mDay = sConfigMgr.getConfig(G_CFG_UINT32_MAINTENANCE_DAY);
+			uint32 mDay = sConfigMgr.getConfig(D_CFG_UINT32_MAINTENANCE_DAY);
             tm* date     = GetLocalTimeByTime(m_gameTime);
             // formula to find last mDay of gregorian calendary
             return today - ((date->tm_wday - mDay  + 7) % 7);
@@ -142,7 +142,7 @@ class DBServer
         /// Get the maximum skill level a player can reach
         uint16 GetConfigMaxSkillValue() const
         {
-			uint32 lvl = sConfigMgr.getConfig(G_CFG_UINT32_MAX_PLAYER_LEVEL);
+			uint32 lvl = sConfigMgr.getConfig(D_CFG_UINT32_MAX_PLAYER_LEVEL);
             return lvl > 60 ? 300 + ((lvl - 60) * 75) / 10 : lvl * 5;
         }
 
@@ -168,12 +168,9 @@ class DBServer
 		void AddHeartTime(uint32 diff);
         //void UpdateSessions(uint32 diff);
 
-        
-        
-
         /// Are we on a "Player versus Player" server?
-		bool IsPvPRealm() { return (sConfigMgr.getConfig(G_CFG_UINT32_GAME_TYPE) == REALM_TYPE_PVP || sConfigMgr.getConfig(G_CFG_UINT32_GAME_TYPE) == REALM_TYPE_RPPVP || sConfigMgr.getConfig(G_CFG_UINT32_GAME_TYPE) == REALM_TYPE_FFA_PVP); }
-		bool IsFFAPvPRealm() { return sConfigMgr.getConfig(G_CFG_UINT32_GAME_TYPE) == REALM_TYPE_FFA_PVP; }
+		bool IsPvPRealm() { return (sConfigMgr.getConfig(D_CFG_UINT32_GAME_TYPE) == REALM_TYPE_PVP || sConfigMgr.getConfig(D_CFG_UINT32_GAME_TYPE) == REALM_TYPE_RPPVP || sConfigMgr.getConfig(D_CFG_UINT32_GAME_TYPE) == REALM_TYPE_FFA_PVP); }
+		bool IsFFAPvPRealm() { return sConfigMgr.getConfig(D_CFG_UINT32_GAME_TYPE) == REALM_TYPE_FFA_PVP; }
 
         //void KickAll();
         void KickAllLess(AccountTypes sec);

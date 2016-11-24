@@ -29,6 +29,7 @@
 #include "Auth/AuthCrypt.h"
 #include "Auth/BigNumber.h"
 #include "Network/Socket.hpp"
+#include "Protocol/protocol_def.h"
 
 #include <chrono>
 #include <functional>
@@ -116,13 +117,13 @@ class DBServerSocket : public MaNGOS::Socket
         virtual bool ProcessIncomingData() override;
 
         /// Called by ProcessIncoming() on CMSG_AUTH_SESSION.
-        bool HandleAuthSession(WorldPacket &recvPacket);
+		bool HandleRegister(WorldPacket &recvPacket);
 
         /// Called by ProcessIncoming() on CMSG_PING.
         bool HandlePing(WorldPacket &recvPacket);
 
     public:
-        DBServerSocket(boost::asio::io_service &service, std::function<void (Socket *)> closeHandler);
+		DBServerSocket(boost::asio::io_service &service, std::function<void(Socket *)> closeHandler);
         virtual ~DBServerSocket();
 
         // send a packet \o/

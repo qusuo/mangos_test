@@ -23,14 +23,17 @@
 #include "dbserver/DBServer.h"
 #include "ByteBuffer.h"
 #include "Database/DatabaseEnv.h"
-#include "Auth/Sha1.h"
+//#include "Auth/Sha1.h"
 #include "DBServerSession.h"
 #include "Log.h"
 #include "global/Opcodes_d.h"
+#include "Network/WorldPacket.h"
+
 #include <chrono>
 #include <functional>
 #include <boost/asio.hpp>
-#include "Network/WorldPacket.h"
+#include "global/SessionMgr.h"
+
 
 
 #if defined( __GNUC__ )
@@ -188,40 +191,31 @@ bool DBServerSocket::ProcessIncomingData()
 
     try
     {
-        switch (opcode)
-        {
-		case 1:
-			break;
-           /* case CMSG_AUTH_SESSION:
-                if (m_session)
-                {
-                    sLog.outError("DBServerSocket::ProcessIncomingData: Player send CMSG_AUTH_SESSION again");
-                    return false;
-                }
+		switch (opcode)
+		{
+		case SMSG_REGISTER:
+			if (m_session){
+				sLog.outError("DBServerSocket::ProcessIncomingData: server send SMSG_REGISTER again");
+				return false;
+			}
 
-                return HandleAuthSession(*pct);
+			return HandleRegister(*pct);
 
-            case CMSG_PING:
-                return HandlePing(*pct);
+		case CMSG_PING:
+			return HandlePing(*pct);
+		default:
+		{
+			if (!m_session)
+			{
+				sLog.outError("DBServerSocket::ProcessIncomingData: server not authed opcode = %u", uint32(opcode));
+				return false;
+			}
 
-            case CMSG_KEEP_ALIVE:
-                DEBUG_LOG("CMSG_KEEP_ALIVE ,size: " SIZEFMTD " ", pct->size());
+			m_session->QueuePacket(pct);
 
-                return true;*/
-
-            default:
-            {
-                if (!m_session)
-                {
-                    sLog.outError("DBServerSocket::ProcessIncomingData: Client not authed opcode = %u", uint32(opcode));
-                    return false;
-                }
-
-                m_session->QueuePacket(pct);
-
-                return true;
-            }
-        }
+			return true;
+		}
+		}
     }
     catch (ByteBufferException&)
     {
@@ -234,7 +228,7 @@ bool DBServerSocket::ProcessIncomingData()
             pct->hexlike();
         }
 
-        if (sConfigMgr.getConfig(G_CFG_BOOL_KICK_PLAYER_ON_BAD_PACKET))
+        if (sConfigMgr.getConfig(D_CFG_BOOL_KICK_PLAYER_ON_BAD_PACKET))
         {
             DETAIL_LOG("Disconnecting session [account id %i / address %s] for badly formatted packet.",
                        m_session ? m_session->GetAccountId() : -1, GetRemoteAddress().c_str());
@@ -246,29 +240,63 @@ bool DBServerSocket::ProcessIncomingData()
     return true;
 }
 
-bool DBServerSocket::HandleAuthSession(WorldPacket &recvPacket)
+bool DBServerSocket::HandleRegister(WorldPacket &recvPacket)
 {
     // NOTE: ATM the socket is singlethread, have this in mind ...
-    uint8 digest[20];
-	uint32 clientSeed;
-	uint32 ClientBuild;
-	//LocaleConstant locale;
-	std::string account;
-	/* Sha1Hash sha1;
-	 BigNumber v, s, g, N, K;*/
-    WorldPacket packet, SendAddonPacked;
+	uint32 node_index;
+	uint32 node_type;
+	WorldPacket packet;
+	uint32 seed;
+	std::string sServerNmae;
 
-    // Read the content of the packet
-    recvPacket >> ClientBuild;
-    recvPacket.read_skip<uint32>();
-    recvPacket >> account;
-    recvPacket >> clientSeed;
-    recvPacket.read(digest, 20);
+	// Read the content of the packet
+	recvPacket >> seed;
+	// Get the register packet content
+	recvPacket >> node_type;
+	//recvPacket.read_skip(16);
+	recvPacket >> node_index;
+	//recvPacket.read_skip(16);
+	recvPacket >> sServerNmae;
 
-    DEBUG_LOG("DBServerSocket::HandleAuthSession: client build %u, account %s, clientseed %X",
-              ClientBuild,
-              account.c_str(),
-              clientSeed);
+	DEBUG_LOG("WorldSocket::OnServerRegister: server type %u, index %u",
+		node_type,
+		node_index);
+
+	const std::string &address = GetRemoteAddress();
+
+	if (sSessionMgr.IsExistSession(node_type, node_index))
+	{
+		uint32 tmp = sConfigMgr.getConfig(CONFIG_UINT32_NODE_TYPE);
+		tmp = sConfigMgr.getConfig(CONFIG_UINT32_NODE_INDEX);
+
+		packet.Initialize(SMSG_REGISTER_RET);
+		packet << sConfigMgr.getConfig(CONFIG_UINT32_NODE_TYPE);
+		packet << sConfigMgr.getConfig(CONFIG_UINT32_NODE_INDEX);
+		packet << uint8(RESPONSE_FAILURE);
+
+		SendPacket(packet);
+
+		DEBUG_LOG("WorldSocket::OnServerRegister: registered fail from %s, already existed.",
+			address.c_str());
+		return false;
+	}
+
+	DEBUG_LOG("WorldSocket::OnServerRegister: registered successfully from %s.",
+		address.c_str());
+
+	if (!(m_session = new DBServerSession(node_index, this, ServerNodeType(node_type), sServerNmae)))
+		return false;
+
+	/*m_session->SetNodeType(ServerNodeType(node_type));
+	m_session->SetNodeIndex(node_index);*/
+
+	sSessionMgr.AddSession(m_session);
+	//等添加session成功后再返回
+
+	// Create and send the Addon packet
+	/*if (sAddOnHandler.BuildAddonPacket(&recvPacket, &SendAddonPacked))
+	SendPacket(SendAddonPacked);*/
+
 
     // Check the version of client trying to connect
     //if (!IsAcceptableClientBuild(ClientBuild))
@@ -472,13 +500,13 @@ bool DBServerSocket::HandlePing(WorldPacket &recvPacket)
         {
             ++m_overSpeedPings;
 
-            const uint32 max_count = sConfigMgr.getConfig(G_CFG_UINT32_MAX_OVERSPEED_PINGS);
+            const uint32 max_count = sConfigMgr.getConfig(D_CFG_UINT32_MAX_OVERSPEED_PINGS);
 
             if (max_count && m_overSpeedPings > max_count)
             {
                 if (m_session && m_session->GetSecurity() == SEC_PLAYER)
                 {
-                    sLog.outError("DBServerSocket::HandlePing: Player kicked for "
+                    sLog.outError("DBServerSocket::HandlePing: server kicked for "
                                   "overspeeded pings address = %s",
                                   GetRemoteAddress().c_str());
 

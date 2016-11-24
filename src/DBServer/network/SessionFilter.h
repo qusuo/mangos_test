@@ -30,11 +30,11 @@ public:
 
 // class used to filer only thread-unsafe packets from queue
 // in order to update only be used in World::UpdateSessions()
-class WorldSessionFilter : public PacketFilter
+class DBSessionFilter : public PacketFilter
 {
 public:
-	explicit WorldSessionFilter(BaseSession* pSession) : PacketFilter(pSession) {}
-	~WorldSessionFilter() {}
+	explicit DBSessionFilter(BaseSession* pSession) : PacketFilter(pSession) {}
+	~DBSessionFilter() {}
 
 	virtual bool Process(WorldPacket* packet) override;
 };

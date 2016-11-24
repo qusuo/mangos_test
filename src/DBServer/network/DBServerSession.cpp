@@ -25,19 +25,8 @@
 #include "Database/DatabaseEnv.h"
 #include "Log.h"
 #include "global/Opcodes_d.h"
-//#include "WorldPacket.h"
 #include "DBServerSession.h"
-//#include "Player.h"
-//#include "ObjectMgr.h"
-//#include "Group.h"
-//#include "Guild.h"
-//#include "GuildMgr.h"
 #include "dbserver/DBServer.h"
-//#include "ObjectAccessor.h"
-//#include "BattleGround/BattleGroundMgr.h"
-//#include "SocialMgr.h"
-//#include "LootMgr.h"
-
 #include <mutex>
 #include <deque>
 #include <algorithm>
@@ -48,12 +37,10 @@
 
 
 /// DBServerSession constructor
-DBServerSession::DBServerSession(uint32 id, DBServerSocket* sock, AccountTypes sec, time_t mute_time, LocaleConstant locale) :
-m_muteTime(mute_time),
-_player(nullptr), m_Socket(sock), _security(sec), _accountId(id), _logoutTime(0),
+DBServerSession::DBServerSession(uint32 id, DBServerSocket* sock, AccountTypes sec, std::string &ServerName) :
+m_muteTime(0),_player(nullptr), m_Socket(sock), _security(sec), _accountId(id), _logoutTime(0),
 m_inQueue(false), m_playerLoading(false), m_playerLogout(false), m_playerRecentlyLogout(false), m_playerSave(false),
-m_sessionDbcLocale(sDBServer.GetAvailableDbcLocale(locale)), m_sessionDbLocaleIndex(0),
-m_latency(0), m_clientTimeDelay(0), m_tutorialState(TUTORIALDATA_UNCHANGED) {}
+m_sessionDbLocaleIndex(0), m_latency(0), m_clientTimeDelay(0), m_tutorialState(TUTORIALDATA_UNCHANGED) {}
 
 /// DBServerSession destructor
 DBServerSession::~DBServerSession()
@@ -197,9 +184,9 @@ bool DBServerSession::Update(PacketFilter& updater)
 			case STATUS_TRANSFER:
 				/*if (!_player)
 					LogUnexpectedOpcode(packet, "the player has not logged in yet");
-				else if (_player->IsInWorld())
+					else if (_player->IsInWorld())
 					LogUnexpectedOpcode(packet, "the player is still in DBServer");
-				else
+					else
 					ExecuteOpcode(opHandle, packet);*/
 				break;
 			case STATUS_AUTHED:
@@ -243,7 +230,7 @@ bool DBServerSession::Update(PacketFilter& updater)
 				packet->hexlike();
 			}
 
-			if (sConfigMgr.getConfig(G_CFG_BOOL_KICK_PLAYER_ON_BAD_PACKET))
+			if (sConfigMgr.getConfig(D_CFG_BOOL_KICK_PLAYER_ON_BAD_PACKET))
 			{
 				DETAIL_LOG("Disconnecting session [account id %u / address %s] for badly formatted packet.",
 					GetAccountId(), GetRemoteAddress().c_str());

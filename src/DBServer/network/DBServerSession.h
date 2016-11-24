@@ -69,7 +69,7 @@ class MANGOS_DLL_SPEC DBServerSession : public BaseSession
         friend class CharacterHandler;
 
     public:
-        DBServerSession(uint32 id, DBServerSocket* sock, AccountTypes sec, time_t mute_time, LocaleConstant locale);
+		DBServerSession(uint32 id, DBServerSocket* sock, AccountTypes sec, std::string &ServerName);
         ~DBServerSession();
 
         bool PlayerLoading() const { return m_playerLoading; }
