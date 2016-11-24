@@ -6,6 +6,8 @@
 //#include "..\dbser.h"
 #include "..\network\SessionFilter.h"
 #include "Protocol\ss_protocol_def.h"
+#include "ConfigMgr.h"
+#include "Protocol\SharedDefines.h"
 
 
 SessionMgr::SessionMgr()
@@ -53,7 +55,7 @@ bool SessionMgr::RemoveSession(uint32 index, uint32 type)
 	return true;
 }
 
-void SessionMgr::AddSession(WorldSession* s)
+void SessionMgr::AddSession(DBServerSession* s)
 {
 	if (IsExistSession(s->GetNodeType(), s->GetNodeIndex())) return;
 
@@ -85,7 +87,7 @@ uint32 SessionMgr::GetActiveSessionCount() const
 }
 
 /// Find a session by its id
-WorldSession* SessionMgr::FindSession(uint32 id, uint32 node_type) const
+DBServerSession* SessionMgr::FindSession(uint32 id, uint32 node_type) const
 {
 	if (!IsExistSession(node_type, id)) return nullptr;
 
@@ -105,13 +107,13 @@ WorldSession* SessionMgr::FindSession(uint32 id, uint32 node_type) const
 //}
 
 
-void SessionMgr::AddSession_(WorldSession* s)
+void SessionMgr::AddSession_(DBServerSession* s)
 {
 	MANGOS_ASSERT(s);
 
 	// if session already exist, prepare to it deleting at next LogicServer update
 	// NOTE - KickPlayer() should be called on "old" in RemoveSession()
-	WorldSession* old = FindSession(s->GetNodeType(), s->GetNodeIndex());
+	DBServerSession* old = FindSession(s->GetNodeType(), s->GetNodeIndex());
 	if (old){
 		return;
 	}
@@ -129,23 +131,23 @@ void SessionMgr::AddSession_(WorldSession* s)
 }
 
 
-int32 SessionMgr::GetQueuedSessionPos(WorldSession* sess)
+int32 SessionMgr::GetQueuedSessionPos(DBServerSession* sess)
 {
 	return 0;
 }
 
-void SessionMgr::AddQueuedSession(WorldSession* sess)
+void SessionMgr::AddQueuedSession(DBServerSession* sess)
 {
 	// register respone
 	WorldPacket packet(SMSG_REGISTER_RET);
-	packet << sConfigMgr.getConfig(CONFIG_UINT32_NODE_TYPE);
-	packet << sConfigMgr.getConfig(CONFIG_UINT32_NODE_INDEX);
+	packet << sConfigMgr.getConfig(D_CFG_UINT32_NODE_TYPE);
+	packet << sConfigMgr.getConfig(D_CFG_UINT32_NODE_INDEX);
 	packet << uint8(RESPONSE_SUCCESS);
 
 	sess->SendPacket(&packet);
 }
 
-bool SessionMgr::RemoveQueuedSession(WorldSession* sess)
+bool SessionMgr::RemoveQueuedSession(DBServerSession* sess)
 {
 	bool found = false;
 	return found;
@@ -177,7 +179,7 @@ void SessionMgr::UpdateSessions()
 	{
 		std::lock_guard<std::mutex> guard(m_sessionAddQueueLock);
 
-		std::for_each(m_sessionAddQueue.begin(), m_sessionAddQueue.end(), [&](WorldSession *session) { AddSession_(session); });
+		std::for_each(m_sessionAddQueue.begin(), m_sessionAddQueue.end(), [&](DBServerSession *session) { AddSession_(session); });
 
 		m_sessionAddQueue.clear();
 	}
@@ -189,8 +191,8 @@ void SessionMgr::UpdateSessions()
 		{
 			if (m_sessions[i][j] != nullptr)
 			{
-				WorldSession* pSession = m_sessions[i][j];
-				WorldSessionFilter updater(pSession);
+				DBServerSession* pSession = m_sessions[i][j];
+				DBSessionFilter updater(pSession);
 
 				// the session itself is owned by the socket which created it.  that is where the destruction of the session will happen.
 				if (!pSession->Update(updater))

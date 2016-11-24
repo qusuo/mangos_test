@@ -20,8 +20,8 @@
 /// @{
 /// \file
 
-#ifndef _OPCODES_G_H
-#define _OPCODES_G_H
+#ifndef _OPCODES_D_H
+#define _OPCODES_D_H
 
 #include "Common.h"
 
@@ -37,7 +37,7 @@
 class WorldPacket;
 
 
-struct OpcodeHandler_g
+struct OpcodeHandler_d
 {
 	char const* name;
 	SessionStatus_s status;
@@ -45,18 +45,18 @@ struct OpcodeHandler_g
 	void (DBServerSession::*handler)(WorldPacket& recvPacket);
 };
 
-typedef std::map< uint16, OpcodeHandler_g> OpcodeMap_g;
+typedef std::map< uint16, OpcodeHandler_d> OpcodeMap_g;
 
-class Opcodes_g
+class Opcodes_d
 {
     public:
-		Opcodes_g();
-		~Opcodes_g();
+		Opcodes_d();
+		~Opcodes_d();
     public:
         void BuildOpcodeList();
 		void StoreOpcode(uint16 Opcode, char const* name, SessionStatus_s status, PacketProcessing_s process, void (DBServerSession::*handler)(WorldPacket& recvPacket))
         {
-            OpcodeHandler_g& ref = mOpcodeMap[Opcode];
+            OpcodeHandler_d& ref = mOpcodeMap[Opcode];
             ref.name = name;
             ref.status = status;
             ref.packetProcessing = process;
@@ -64,7 +64,7 @@ class Opcodes_g
         }
 
         /// Lookup opcode
-        inline OpcodeHandler_g const* LookupOpcode(uint16 id) const
+        inline OpcodeHandler_d const* LookupOpcode(uint16 id) const
         {
             OpcodeMap_g::const_iterator itr = mOpcodeMap.find(id);
             if (itr != mOpcodeMap.end())
@@ -74,7 +74,7 @@ class Opcodes_g
 
         /// compatible with other mangos branches access
 
-        inline OpcodeHandler_g const& operator[](uint16 id) const
+        inline OpcodeHandler_d const& operator[](uint16 id) const
         {
             OpcodeMap_g::const_iterator itr = mOpcodeMap.find(id);
             if (itr != mOpcodeMap.end())
@@ -82,17 +82,17 @@ class Opcodes_g
             return emptyHandler;
         }
 
-        static OpcodeHandler_g const emptyHandler;
+        static OpcodeHandler_d const emptyHandler;
 
         OpcodeMap_g mOpcodeMap;
 };
 
-#define opcodeTable_g MaNGOS::Singleton<Opcodes_g>::Instance()
+#define opcodeTable_d MaNGOS::Singleton<Opcodes_g>::Instance()
 
 /// Lookup opcode name for human understandable logging
 inline char const* LookupOpcodeName(uint16 id)
 {
-	if (OpcodeHandler_g const* op = opcodeTable_g.LookupOpcode(id))
+	if (OpcodeHandler_d const* op = opcodeTable_d.LookupOpcode(id))
         return op->name;
     return "Received unknown opcode, it's more than max!";
 }

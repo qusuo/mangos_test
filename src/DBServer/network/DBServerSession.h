@@ -20,8 +20,8 @@
 /// @{
 /// \file
 
-#ifndef __WORLDSESSION_H
-#define __WORLDSESSION_H
+#ifndef __DBSERVERSESSION_H
+#define __DBSERVERSESSION_H
 
 #include "Common.h"
 //#include "SharedDefines.h"
@@ -45,13 +45,13 @@ struct OpcodeHandler_l;
 
 
 /// Player session in the World
-class MANGOS_DLL_SPEC WorldSession : public BaseSession
+class MANGOS_DLL_SPEC DBServerSession : public BaseSession
 {
 	friend class CharacterHandler;
 
 public:
-	WorldSession(uint32 id, WorldSocket* sock, ServerNodeType sec);
-	~WorldSession();
+	DBServerSession(uint32 id, DBServerSocket* sock, ServerNodeType sec);
+	~DBServerSession();
 
 	//Ö÷¶¯
 	bool PlayerLoading() const { return m_playerLoading; }
@@ -123,7 +123,7 @@ public:
 
 	// opcodes handlers
 	void Handle_NULL(WorldPacket& recvPacket);          // not used
-	void Handle_EarlyProccess(WorldPacket& recvPacket); // just mark packets processed in WorldSocket::OnRead
+	void Handle_EarlyProccess(WorldPacket& recvPacket); // just mark packets processed in DBServerSocket::OnRead
 	void Handle_ServerSide(WorldPacket& recvPacket);    // sever side only, can't be accepted from client
 	void Handle_Deprecated(WorldPacket& recvPacket);    // never used anymore by client
 
@@ -153,7 +153,7 @@ private:
 
 	std::mutex m_logoutMutex;                           // this mutex is necessary to avoid two simultaneous logouts due to a valid logout request and socket error
 	Player * _player;
-	WorldSocket * const m_Socket;                       // socket pointer is owned by the network thread which created 
+	DBServerSocket * const m_Socket;                       // socket pointer is owned by the network thread which created 
 
 	//uint32 _accountId;
 
@@ -161,7 +161,7 @@ private:
 	bool m_inQueue;                                     // session wait in auth.queue
 	bool m_playerLoading;                               // code processed in LoginPlayer
 
-	// True when the player is in the process of logging out (WorldSession::LogoutPlayer is currently executing)
+	// True when the player is in the process of logging out (DBServerSession::LogoutPlayer is currently executing)
 	bool m_playerLogout;
 	bool m_playerRecentlyLogout;
 	bool m_playerSave;                                  // code processed in LogoutPlayer with save request

@@ -20,13 +20,13 @@
 \ingroup u2w
 */
 
-#include "WorldSocket.h"                                    // must be first to make ACE happy with ACE includes in it
+#include "DBServerSocket.h"                                    // must be first to make ACE happy with ACE includes in it
 #include "Common.h"
 #include "Database/DatabaseEnv.h"
 #include "Log.h"
-#include "WorldSession.h"
-#include "../global/Opcodes_l.h"
-#include "../logicserver.h"
+#include "DBServerSession.h"
+#include "../global/Opcodes_d.h"
+#include "../dbserver/DBServer.h"
 #include <mutex>
 #include <deque>
 #include <algorithm>
@@ -35,14 +35,14 @@
 #include "SessionFilter.h"
 
 
-/// WorldSession constructor
-WorldSession::WorldSession(uint32 id, WorldSocket* sock, ServerNodeType sec)
+/// DBServerSession constructor
+DBServerSession::DBServerSession(uint32 id, DBServerSocket* sock, ServerNodeType sec)
 	: _player(nullptr), m_Socket(sock), m_node_type(sec), _logoutTime(0), m_inQueue(false),
 	m_playerLoading(false), m_playerLogout(false), m_playerRecentlyLogout(false), m_playerSave(false),
 	m_node_index(id), m_latency(0){}
 
-/// WorldSession destructor
-WorldSession::~WorldSession()
+/// DBServerSession destructor
+DBServerSession::~DBServerSession()
 {
 	///- unload player if not unloaded
 	if (_player)
@@ -53,7 +53,7 @@ WorldSession::~WorldSession()
 		delete packet;
 }
 
-void WorldSession::SizeError(WorldPacket const& packet, uint32 size) const
+void DBServerSession::SizeError(WorldPacket const& packet, uint32 size) const
 {
 	sLog.outError("server (node index %u, node type %u) send packet %s (%u) with size " SIZEFMTD " but expected %u (attempt crash server?), skipped",
 		GetNodeIndex(), GetNodeType(), LookupOpcodeName(packet.GetOpcode()), packet.GetOpcode(), packet.size(), size);
@@ -61,7 +61,7 @@ void WorldSession::SizeError(WorldPacket const& packet, uint32 size) const
 }
 
 /// Get the player name
-char const* WorldSession::GetPlayerName() const
+char const* DBServerSession::GetPlayerName() const
 {
 	//return GetPlayer() ? GetPlayer()->GetName() : "<none>";
 
@@ -69,7 +69,7 @@ char const* WorldSession::GetPlayerName() const
 }
 
 /// Send a packet to the client
-void WorldSession::SendPacket(WorldPacket const* packet)
+void DBServerSession::SendPacket(WorldPacket const* packet)
 {
 	if (m_Socket->IsClosed())
 		return;
@@ -114,14 +114,14 @@ void WorldSession::SendPacket(WorldPacket const* packet)
 }
 
 /// Add an incoming packet to the queue
-void WorldSession::QueuePacket(WorldPacket* new_packet)
+void DBServerSession::QueuePacket(WorldPacket* new_packet)
 {
 	std::lock_guard<std::mutex> guard(m_recvQueueLock);
 	m_recvQueue.push_back(new_packet);
 }
 
 /// Logging helper for unexpected opcodes
-void WorldSession::LogUnexpectedOpcode(WorldPacket* packet, const char* reason)
+void DBServerSession::LogUnexpectedOpcode(WorldPacket* packet, const char* reason)
 {
 	sLog.outError("SESSION: received unexpected opcode %s (0x%.4X) %s",
 		LookupOpcodeName(packet->GetOpcode()),
@@ -130,7 +130,7 @@ void WorldSession::LogUnexpectedOpcode(WorldPacket* packet, const char* reason)
 }
 
 /// Logging helper for unexpected opcodes
-void WorldSession::LogUnprocessedTail(WorldPacket* packet)
+void DBServerSession::LogUnprocessedTail(WorldPacket* packet)
 {
 	sLog.outError("SESSION: opcode %s (0x%.4X) have unprocessed tail data (read stop at " SIZEFMTD " from " SIZEFMTD ")",
 		LookupOpcodeName(packet->GetOpcode()),
@@ -138,8 +138,8 @@ void WorldSession::LogUnprocessedTail(WorldPacket* packet)
 		packet->rpos(), packet->wpos());
 }
 
-/// Update the WorldSession (triggered by World update)
-bool WorldSession::Update(PacketFilter& updater)
+/// Update the DBServerSession (triggered by World update)
+bool DBServerSession::Update(PacketFilter& updater)
 {
 	std::lock_guard<std::mutex> guard(m_recvQueueLock);
 
@@ -223,7 +223,7 @@ bool WorldSession::Update(PacketFilter& updater)
 		}
 		catch (ByteBufferException&)
 		{
-			sLog.outError("WorldSession::Update ByteBufferException occured while parsing a packet (opcode: %u) from client %s, node index=%u node type =%u.",
+			sLog.outError("DBServerSession::Update ByteBufferException occured while parsing a packet (opcode: %u) from client %s, node index=%u node type =%u.",
 				packet->GetOpcode(), GetRemoteAddress().c_str(), GetNodeIndex(), GetNodeType());
 			if (sLog.HasLogLevelOrHigher(LOG_LVL_DEBUG))
 			{
@@ -262,7 +262,7 @@ bool WorldSession::Update(PacketFilter& updater)
 }
 
 /// %Log the player out
-void WorldSession::LogoutPlayer(bool save)
+void DBServerSession::LogoutPlayer(bool save)
 {
 	// if the player has just logged out, there is no need to do anything here
 	if (m_playerRecentlyLogout)
@@ -449,7 +449,7 @@ void WorldSession::LogoutPlayer(bool save)
 }
 
 /// Kick a player out of the World
-void WorldSession::KickPlayer()
+void DBServerSession::KickPlayer()
 {
 	if (!m_Socket->IsClosed())
 		m_Socket->Close();
@@ -457,7 +457,7 @@ void WorldSession::KickPlayer()
 
 /// Cancel channeling handler
 
-void WorldSession::SendAreaTriggerMessage(const char* Text, ...)
+void DBServerSession::SendAreaTriggerMessage(const char* Text, ...)
 {
 	va_list ap;
 	char szStr[1024];
@@ -474,7 +474,7 @@ void WorldSession::SendAreaTriggerMessage(const char* Text, ...)
 	SendPacket(&data);*/
 }
 
-void WorldSession::SendNotification(const char* format, ...)
+void DBServerSession::SendNotification(const char* format, ...)
 {
 	if (format)
 	{
@@ -491,7 +491,7 @@ void WorldSession::SendNotification(const char* format, ...)
 	}
 }
 
-void WorldSession::SendNotification(int32 string_id, ...)
+void DBServerSession::SendNotification(int32 string_id, ...)
 {
 	/*char const* format = GetMangosString(string_id);
 	if (format)
@@ -509,41 +509,41 @@ void WorldSession::SendNotification(int32 string_id, ...)
 	}*/
 }
 
-const char* WorldSession::GetMangosString(int32 entry) const
+const char* DBServerSession::GetMangosString(int32 entry) const
 {
 	//return sObjectMgr.GetMangosString(entry, GetSessionDbLocaleIndex());
 	return "<none>";
 }
 
-void WorldSession::Handle_NULL(WorldPacket& recvPacket)
+void DBServerSession::Handle_NULL(WorldPacket& recvPacket)
 {
 	DEBUG_LOG("SESSION: received unimplemented opcode %s (0x%.4X)",
 		LookupOpcodeName(recvPacket.GetOpcode()),
 		recvPacket.GetOpcode());
 }
 
-void WorldSession::Handle_EarlyProccess(WorldPacket& recvPacket)
+void DBServerSession::Handle_EarlyProccess(WorldPacket& recvPacket)
 {
-	sLog.outError("SESSION: received opcode %s (0x%.4X) that must be processed in WorldSocket::OnRead",
+	sLog.outError("SESSION: received opcode %s (0x%.4X) that must be processed in DBServerSocket::OnRead",
 		LookupOpcodeName(recvPacket.GetOpcode()),
 		recvPacket.GetOpcode());
 }
 
-void WorldSession::Handle_ServerSide(WorldPacket& recvPacket)
+void DBServerSession::Handle_ServerSide(WorldPacket& recvPacket)
 {
 	sLog.outError("SESSION: received server-side opcode %s (0x%.4X)",
 		LookupOpcodeName(recvPacket.GetOpcode()),
 		recvPacket.GetOpcode());
 }
 
-void WorldSession::Handle_Deprecated(WorldPacket& recvPacket)
+void DBServerSession::Handle_Deprecated(WorldPacket& recvPacket)
 {
 	sLog.outError("SESSION: received deprecated opcode %s (0x%.4X)",
 		LookupOpcodeName(recvPacket.GetOpcode()),
 		recvPacket.GetOpcode());
 }
 
-void WorldSession::SendAuthWaitQue(uint32 position)
+void DBServerSession::SendAuthWaitQue(uint32 position)
 {
 	/* if (position == 0)
 	{
@@ -561,7 +561,7 @@ void WorldSession::SendAuthWaitQue(uint32 position)
 }
 
 // Send chat information about aborted transfer (mostly used by Player::SendTransferAbortedByLockstatus())
-void WorldSession::SendTransferAborted(uint32 mapid, uint8 reason, uint8 arg)
+void DBServerSession::SendTransferAborted(uint32 mapid, uint8 reason, uint8 arg)
 {
 	//WorldPacket data(SMSG_TRANSFER_ABORTED, 4 + 2);
 	//data << uint32(mapid);
@@ -570,7 +570,7 @@ void WorldSession::SendTransferAborted(uint32 mapid, uint8 reason, uint8 arg)
 	//SendPacket(&data);
 }
 
-void WorldSession::ExecuteOpcode(OpcodeHandler_l const& opHandle, WorldPacket* packet)
+void DBServerSession::ExecuteOpcode(OpcodeHandler_l const& opHandle, WorldPacket* packet)
 {
 	// need prevent do internal far teleports in handlers because some handlers do lot steps
 	// or call code that can do far teleports in some conditions unexpectedly for generic way work code
@@ -594,7 +594,7 @@ void WorldSession::ExecuteOpcode(OpcodeHandler_l const& opHandle, WorldPacket* p
 		LogUnprocessedTail(packet);
 }
 
-//void WorldSession::SendPlaySpellVisual(ObjectGuid guid, uint32 spellArtKit)
+//void DBServerSession::SendPlaySpellVisual(ObjectGuid guid, uint32 spellArtKit)
 //{
 //    WorldPacket data(SMSG_PLAY_SPELL_VISUAL, 8 + 4);        // visual effect on guid
 //    data << guid;
