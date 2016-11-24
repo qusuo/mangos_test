@@ -1,0 +1,93 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{1eb63311-0c18-473d-9721-6ebdab4c56c2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="global">
+      <UniqueIdentifier>{91bfc430-6b7c-4a0b-81e0-477f7d37e526}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="dbserver">
+      <UniqueIdentifier>{40a48fbc-caa7-4359-8306-19517fc2f27a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{4cd36770-b55b-4a13-b18a-9ba2f11fd179}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\DBServer\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DBServer\global\ConfigMgr.cpp">
+      <Filter>global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DBServer\global\Opcodes_d.cpp">
+      <Filter>global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DBServer\global\SessionMgr.cpp">
+      <Filter>global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DBServer\dbserver\DBServer.cpp">
+      <Filter>dbserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DBServer\dbserver\DBServerRunnable.cpp">
+      <Filter>dbserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DBServer\dbserver\MasterDBServer.cpp">
+      <Filter>dbserver</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DBServer\network\DBServerSession.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DBServer\network\DBServerSocket.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\DBServer\network\SessionFilter.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\DBServer\global\ConfigMgr.h">
+      <Filter>global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\DBServer\global\Opcodes_d.h">
+      <Filter>global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\DBServer\global\SessionMgr.h">
+      <Filter>global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\DBServer\dbserver\DBServer.h">
+      <Filter>dbserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\DBServer\dbserver\DBServerRunnable.h">
+      <Filter>dbserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\DBServer\dbserver\MasterDBServer.h">
+      <Filter>dbserver</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\DBServer\network\DBServerSession.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\DBServer\network\DBServerSocket.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\DBServer\network\SessionFilter.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\DBServer\common\DBServerDef.h">
+      <Filter>common</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>

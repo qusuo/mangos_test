@@ -1,0 +1,617 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug_NoPCH|Win32">
+      <Configuration>Debug_NoPCH</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_NoPCH|Win32">
+      <Configuration>Debug_NoPCH</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_NoPCH|x64">
+      <Configuration>Debug_NoPCH</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug_NoPCH|x64">
+      <Configuration>Debug_NoPCH</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGUID>{90297C34-F231-4DF4-848E-A74BCC0E40ED}</ProjectGUID>
+    <RootNamespace>shared</RootNamespace>
+    <Keyword>Win32Proj</Keyword>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Release|X64'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|Win32'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration" Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|X64'">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <UseOfMfc>false</UseOfMfc>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v120</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(LocalAppData)\Microsoft\VisualStudio\12.0\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(LocalAppData)\Microsoft\VisualStudio\10.0\Microsoft.Cpp.$(Platform).user.props')" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\shared__$(Platform)_$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.\shared__$(Platform)_$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">shared</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|X64'">.\shared__$(Platform)_$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|X64'">.\shared__$(Platform)_$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|X64'">shared</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|X64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\shared__$(Platform)_$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.\shared__$(Platform)_$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">shared</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">.\shared__$(Platform)_$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">.\shared__$(Platform)_$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">shared</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|Win32'">.\shared__$(Platform)_$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|Win32'">.\shared__$(Platform)_$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|Win32'">shared</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|X64'">.\shared__$(Platform)_$(Configuration)\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|X64'">.\shared__$(Platform)_$(Configuration)\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|X64'">shared</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|X64'">.lib</TargetExt>
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|X64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|X64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|X64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Debug|X64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Debug|X64'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" />
+    <CodeAnalysisRuleSet Condition="'$(Configuration)|$(Platform)'=='Release|X64'">AllRules.ruleset</CodeAnalysisRuleSet>
+    <CodeAnalysisRules Condition="'$(Configuration)|$(Platform)'=='Release|X64'" />
+    <CodeAnalysisRuleAssemblies Condition="'$(Configuration)|$(Platform)'=='Release|X64'" />
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <IncludePath>C:\boost_1_59_0;$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <IncludePath>$(IncludePath)</IncludePath>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\..\dep\include;..\..\src\framework;..\..\src\shared;$(BOOST_ROOT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>StreamingSIMDExtensions</EnableEnhancedInstructionSet>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>.\shared__$(Platform)_$(Configuration)/shared.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\shared__$(Platform)_$(Configuration)\</AssemblerListingLocation>
+      <ObjectFileName>.\shared__$(Platform)_$(Configuration)\</ObjectFileName>
+      <ProgramDataBaseFileName>.\shared__$(Platform)_$(Configuration)\</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>Cdecl</CallingConvention>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>dep\lib\$(Platform)_$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|X64'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <AdditionalIncludeDirectories>..\..\dep\include;..\..\src\framework;..\..\src\shared;$(BOOST_HOME);..\..\src\3rd\lua-5.1.4\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;WIN32;NDEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <StringPooling>true</StringPooling>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <EnableEnhancedInstructionSet>NotSet</EnableEnhancedInstructionSet>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>.\shared__$(Platform)_$(Configuration)/shared.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\shared__$(Platform)_$(Configuration)\</AssemblerListingLocation>
+      <ObjectFileName>.\shared__$(Platform)_$(Configuration)\</ObjectFileName>
+      <ProgramDataBaseFileName>.\shared__$(Platform)_$(Configuration)\</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>Cdecl</CallingConvention>
+      <CompileAs>Default</CompileAs>
+      <MultiProcessorCompilation>true</MultiProcessorCompilation>
+      <Optimization>Disabled</Optimization>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>NDEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>dep\lib\$(Platform)_$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <ForceSymbolReferences>
+      </ForceSymbolReferences>
+      <AdditionalDependencies>
+      </AdditionalDependencies>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\dep\include;..\..\src\framework;..\..\src\shared;$(BOOST_ROOT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;WIN32;_DEBUG;MANGOS_DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>.\shared__$(Platform)_$(Configuration)\shared.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\shared__$(Platform)_$(Configuration)\</AssemblerListingLocation>
+      <ObjectFileName>.\shared__$(Platform)_$(Configuration)\</ObjectFileName>
+      <ProgramDataBaseFileName>.\shared__$(Platform)_$(Configuration)\</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>Cdecl</CallingConvention>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>dep\lib\$(Platform)_$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\dep\include;..\..\src\framework;..\..\src\shared;$(BOOST_ROOT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;WIN32;_DEBUG;MANGOS_DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>.\shared__$(Platform)_$(Configuration)\shared.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\shared__$(Platform)_$(Configuration)\</AssemblerListingLocation>
+      <ObjectFileName>.\shared__$(Platform)_$(Configuration)\</ObjectFileName>
+      <ProgramDataBaseFileName>.\shared__$(Platform)_$(Configuration)\</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>Cdecl</CallingConvention>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>dep\lib\$(Platform)_$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|Win32'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\dep\include;..\..\src\framework;..\..\src\shared;$(BOOST_ROOT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;WIN32;_DEBUG;MANGOS_DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>.\shared__$(Platform)_$(Configuration)\shared.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\shared__$(Platform)_$(Configuration)\</AssemblerListingLocation>
+      <ObjectFileName>.\shared__$(Platform)_$(Configuration)\</ObjectFileName>
+      <ProgramDataBaseFileName>.\shared__$(Platform)_$(Configuration)\</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>Cdecl</CallingConvention>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>dep\lib\$(Platform)_debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|X64'">
+    <PreBuildEvent>
+      <Command>
+      </Command>
+    </PreBuildEvent>
+    <Midl>
+      <TargetEnvironment>X64</TargetEnvironment>
+    </Midl>
+    <ClCompile>
+      <AdditionalOptions>/MP %(AdditionalOptions)</AdditionalOptions>
+      <Optimization>Disabled</Optimization>
+      <AdditionalIncludeDirectories>..\..\dep\include;..\..\src\framework;..\..\src\shared;$(BOOST_ROOT);%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <PreprocessorDefinitions>_SCL_SECURE_NO_WARNINGS;WIN32;_DEBUG;MANGOS_DEBUG;_LIB;_CRT_SECURE_NO_DEPRECATE;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <FunctionLevelLinking>true</FunctionLevelLinking>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <PrecompiledHeader>
+      </PrecompiledHeader>
+      <PrecompiledHeaderOutputFile>.\shared__$(Platform)_$(Configuration)\shared.pch</PrecompiledHeaderOutputFile>
+      <AssemblerListingLocation>.\shared__$(Platform)_$(Configuration)\</AssemblerListingLocation>
+      <ObjectFileName>.\shared__$(Platform)_$(Configuration)\</ObjectFileName>
+      <ProgramDataBaseFileName>.\shared__$(Platform)_$(Configuration)\</ProgramDataBaseFileName>
+      <WarningLevel>Level3</WarningLevel>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <CallingConvention>Cdecl</CallingConvention>
+      <CompileAs>Default</CompileAs>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>_DEBUG;%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <Culture>0x0409</Culture>
+    </ResourceCompile>
+    <Lib>
+      <AdditionalLibraryDirectories>dep\lib\$(Platform)_debug;%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <SuppressStartupBanner>true</SuppressStartupBanner>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\src\shared\revision.h">
+      <Message>Extract revision</Message>
+      <Command>cd "$(ProjectDir)..\..\src\shared"
+"$(TargetDir)..\genrevision__$(Platform)_$(Configuration)\genrevision.exe" "..\.."
+</Command>
+      <AdditionalInputs>$(ProjectDir)..\..\.svn\entries;$(ProjectDir)..\..\_svn\entries;$(ProjectDir)..\..\.git\FETCH_HEAD;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs>revision.h;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\src\shared\SystemConfig.h.in">
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Performing Build SystemConfig.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">copy ..\..\src\shared\SystemConfig.h.in ..\..\src\shared\SystemConfig.h
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">..\..\src\shared\SystemConfig.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|X64'">Performing Build SystemConfig.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|X64'">copy ..\..\src\shared\SystemConfig.h.in ..\..\src\shared\SystemConfig.h
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|X64'">..\..\src\shared\SystemConfig.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Performing Build SystemConfig.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">copy ..\..\src\shared\SystemConfig.h.in ..\..\src\shared\SystemConfig.h
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">..\..\src\shared\SystemConfig.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">Performing Build SystemConfig.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">copy ..\..\src\shared\SystemConfig.h.in ..\..\src\shared\SystemConfig.h
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|X64'">..\..\src\shared\SystemConfig.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|Win32'">Performing Build SystemConfig.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|Win32'">copy ..\..\src\shared\SystemConfig.h.in ..\..\src\shared\SystemConfig.h
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|Win32'">..\..\src\shared\SystemConfig.h;%(Outputs)</Outputs>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|X64'">Performing Build SystemConfig.h</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|X64'">copy ..\..\src\shared\SystemConfig.h.in ..\..\src\shared\SystemConfig.h
+</Command>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug_NoPCH|X64'">..\..\src\shared\SystemConfig.h;%(Outputs)</Outputs>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lapi.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lauxlib.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lbaselib.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lcode.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ldblib.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ldebug.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ldo.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ldump.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lfunc.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lgc.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\linit.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\liolib.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\llex.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lmathlib.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lmem.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\loadlib.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lobject.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lopcodes.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\loslib.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lparser.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lstate.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lstring.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lstrlib.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ltable.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ltablib.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ltm.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lua.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lundump.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lvm.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lzio.c" />
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\print.c" />
+    <ClCompile Include="..\..\src\shared\Auth\AuthCrypt.cpp" />
+    <ClCompile Include="..\..\src\shared\Auth\BigNumber.cpp" />
+    <ClCompile Include="..\..\src\shared\Auth\Hmac.cpp" />
+    <ClCompile Include="..\..\src\shared\Auth\md5.c" />
+    <ClCompile Include="..\..\src\shared\Auth\Sha1.cpp" />
+    <ClCompile Include="..\..\src\shared\ByteBuffer.cpp" />
+    <ClCompile Include="..\..\src\shared\Common.cpp" />
+    <ClCompile Include="..\..\src\shared\Config\Config.cpp" />
+    <ClCompile Include="..\..\src\shared\Config\ConfigLua.cpp" />
+    <ClCompile Include="..\..\src\shared\Database\Database.cpp" />
+    <ClCompile Include="..\..\src\shared\Database\DatabaseMysql.cpp" />
+    <ClCompile Include="..\..\src\shared\Database\DBCFileLoader.cpp" />
+    <ClCompile Include="..\..\src\shared\Database\Field.cpp" />
+    <ClCompile Include="..\..\src\shared\Database\QueryResultMysql.cpp" />
+    <ClCompile Include="..\..\src\shared\Database\SqlDelayThread.cpp" />
+    <ClCompile Include="..\..\src\shared\Database\SqlOperations.cpp" />
+    <ClCompile Include="..\..\src\shared\Database\SqlPreparedStatement.cpp" />
+    <ClCompile Include="..\..\src\shared\Database\SQLStorage.cpp" />
+    <ClCompile Include="..\..\src\shared\Log.cpp" />
+    <ClCompile Include="..\..\src\shared\lua\CustomLuaScript.cpp" />
+    <ClCompile Include="..\..\src\shared\Module\game_net_register.cpp" />
+    <ClCompile Include="..\..\src\shared\Network\PacketBuffer.cpp" />
+    <ClCompile Include="..\..\src\shared\Network\Socket.cpp" />
+    <ClCompile Include="..\..\src\shared\ProgressBar.cpp" />
+    <ClCompile Include="..\..\src\shared\ServiceWin32.cpp" />
+    <ClCompile Include="..\..\src\shared\Threading.cpp" />
+    <ClCompile Include="..\..\src\shared\Util.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lapi.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lauxlib.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lcode.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\ldebug.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\ldo.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lfunc.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lgc.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\llex.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\llimits.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lmem.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lobject.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lopcodes.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lparser.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lstate.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lstring.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\ltable.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\ltm.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lua.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\luaconf.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lualib.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lundump.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lvm.h" />
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lzio.h" />
+    <ClInclude Include="..\..\src\shared\Auth\AuthCrypt.h" />
+    <ClInclude Include="..\..\src\shared\Auth\BigNumber.h" />
+    <ClInclude Include="..\..\src\shared\Auth\Hmac.h" />
+    <ClInclude Include="..\..\src\shared\Auth\md5.h" />
+    <ClInclude Include="..\..\src\shared\Auth\Sha1.h" />
+    <ClInclude Include="..\..\src\shared\ByteBuffer.h" />
+    <ClInclude Include="..\..\src\shared\Config\ConfigLua.h" />
+    <ClInclude Include="..\..\src\shared\Config\DefaultDef.h" />
+    <ClInclude Include="..\..\src\shared\Database\SqlPreparedStatement.h" />
+    <ClInclude Include="..\..\src\shared\Include\value_def.h" />
+    <ClInclude Include="..\..\src\shared\lua\CustomLuaClass.h" />
+    <ClInclude Include="..\..\src\shared\lua\CustomLuaScript.h" />
+    <ClInclude Include="..\..\src\shared\lua\lua_include.h" />
+    <ClInclude Include="..\..\src\shared\Module\game_net_register.h" />
+    <ClInclude Include="..\..\src\shared\Module\jxsession.h" />
+    <ClInclude Include="..\..\src\shared\Module\MemoryTest.h" />
+    <ClInclude Include="..\..\src\shared\Module\module-interface.h" />
+    <ClInclude Include="..\..\src\shared\Module\module_manager-interface.h" />
+    <ClInclude Include="..\..\src\shared\Network\BasePlayer.h" />
+    <ClInclude Include="..\..\src\shared\Network\BaseSession.h" />
+    <ClInclude Include="..\..\src\shared\Network\connecter.hpp" />
+    <ClInclude Include="..\..\src\shared\Network\Listener.hpp" />
+    <ClInclude Include="..\..\src\shared\Network\NetDef.h" />
+    <ClInclude Include="..\..\src\shared\Network\NetworkThread.hpp" />
+    <ClInclude Include="..\..\src\shared\Network\net_param.h" />
+    <ClInclude Include="..\..\src\shared\Network\PacketBuffer.hpp" />
+    <ClInclude Include="..\..\src\shared\Network\Socket.hpp" />
+    <ClInclude Include="..\..\src\shared\Network\WorldPacket.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\bm_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\cs_global_protocol_def.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\cs_opcodes.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\cs_protocol_def.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\DBCEnums.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\ms_logic_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\PlayerDef.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\ServerDef.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\SharedDefines.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\ss_opcodes.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\protocol_def.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\reserved_protocol_def.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\rmi_cmd_def.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\ss_protocol_def.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_activity_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_alliance_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_battle_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_boom_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_building_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_chapter_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_chat_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_city_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_event_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_famous_city_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_general_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_item_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_mail_protocol.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_processor_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_produce_item_add_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_rank_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_role_attr_add_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_role_attr_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_role_equip_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_role_init_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_role_ordnance_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_role_skill_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_scheme_develop_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_shop_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_soldier_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_task_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_test_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_wartech_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\login_protocol.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\waprotocol\wa_alliance_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\waprotocol\wa_chat_rot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\waprotocol\wa_common_rot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\waprotocol\wa_mail_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\waprotocol\wa_rank_prot.h" />
+    <ClInclude Include="..\..\src\shared\Protocol\wa_protocol_def.h" />
+    <ClInclude Include="..\..\src\shared\Common.h" />
+    <ClInclude Include="..\..\src\shared\Config\Config.h" />
+    <ClInclude Include="..\..\src\shared\Database\Database.h" />
+    <ClInclude Include="..\..\src\shared\Database\DatabaseEnv.h" />
+    <ClInclude Include="..\..\src\shared\Database\DatabaseImpl.h" />
+    <ClInclude Include="..\..\src\shared\Database\DatabaseMysql.h" />
+    <ClInclude Include="..\..\src\shared\Database\DBCFileLoader.h" />
+    <ClInclude Include="..\..\src\shared\Database\DBCStore.h" />
+    <ClInclude Include="..\..\src\shared\Database\Field.h" />
+    <ClInclude Include="..\..\src\shared\Database\QueryResult.h" />
+    <ClInclude Include="..\..\src\shared\Database\QueryResultMysql.h" />
+    <ClInclude Include="..\..\src\shared\Database\SqlDelayThread.h" />
+    <ClInclude Include="..\..\src\shared\Database\SqlOperations.h" />
+    <ClInclude Include="..\..\src\shared\Database\SQLStorage.h" />
+    <ClInclude Include="..\..\src\shared\Database\SQLStorageImpl.h" />
+    <ClInclude Include="..\..\src\shared\Errors.h" />
+    <ClInclude Include="..\..\src\shared\Log.h" />
+    <ClInclude Include="..\..\src\shared\ProgressBar.h" />
+    <ClInclude Include="..\..\src\shared\revision_sql.h" />
+    <ClInclude Include="..\..\src\shared\ServiceWin32.h" />
+    <ClInclude Include="..\..\src\shared\Threading.h" />
+    <ClInclude Include="..\..\src\shared\Timer.h" />
+    <ClInclude Include="..\..\src\shared\Util.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="framework.vcxproj">
+      <Project>{bf6f5d0e-33a5-4e23-9e7d-dd481b7b5b9e}</Project>
+    </ProjectReference>
+    <ProjectReference Include="genrevision.vcxproj">
+      <Project>{803f488e-4c5a-4866-8d5c-1e6c03c007c2}</Project>
+    </ProjectReference>
+    <ProjectReference Include="zlib.vcxproj">
+      <Project>{8f1dea42-6a5b-4b62-839d-c141a7bfacf2}</Project>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>

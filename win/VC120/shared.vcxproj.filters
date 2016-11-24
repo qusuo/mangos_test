@@ -1,0 +1,589 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Database">
+      <UniqueIdentifier>{c8fcac37-3e33-4a88-b9b3-a322b7dfe5bd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Database\DataStores">
+      <UniqueIdentifier>{809f010b-4e16-4925-81a1-e0778f06f028}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Log">
+      <UniqueIdentifier>{97ba4623-a513-4ad4-b769-7abcff4b6641}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Util">
+      <UniqueIdentifier>{9c8bfd20-3dca-44b6-8d3d-fd5925b39914}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Config">
+      <UniqueIdentifier>{adb98dec-d22a-40b3-84be-51eaf2974a15}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Auth">
+      <UniqueIdentifier>{e35fd108-bd39-46ae-83f9-09cf1ebf4ea8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Network">
+      <UniqueIdentifier>{3ef9efa8-3d38-4068-b837-8754ce76db2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Module">
+      <UniqueIdentifier>{69e62532-93eb-441b-8dcc-13454688a7ed}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{fdef72d4-7f2c-4af4-ac98-54201fcb349a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol">
+      <UniqueIdentifier>{710475db-105b-4cf3-9fb5-ef050cc22298}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol\userprotocol">
+      <UniqueIdentifier>{63efca2c-b2e4-4773-8d26-4a8557e50fb1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol\waprotocol">
+      <UniqueIdentifier>{ce591bb1-0822-4e89-838a-43e7a187301d}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lua">
+      <UniqueIdentifier>{eb946510-5770-4b21-a902-d5bc6a1435d9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="lua_src">
+      <UniqueIdentifier>{8a309fdb-c9d7-4518-be50-d993458e0b62}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Protocol\reference%28no used%29">
+      <UniqueIdentifier>{190c3a10-bdfb-40d6-b7e8-7c878d1801ef}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\shared\Database\Database.cpp">
+      <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Database\DatabaseMysql.cpp">
+      <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Database\Field.cpp">
+      <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Database\QueryResultMysql.cpp">
+      <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Database\SqlDelayThread.cpp">
+      <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Database\SqlOperations.cpp">
+      <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Database\SQLStorage.cpp">
+      <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Database\DBCFileLoader.cpp">
+      <Filter>Database\DataStores</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\ByteBuffer.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Log.cpp">
+      <Filter>Log</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\ProgressBar.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Util.cpp">
+      <Filter>Util</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Config\Config.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Auth\AuthCrypt.cpp">
+      <Filter>Auth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Auth\BigNumber.cpp">
+      <Filter>Auth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Auth\Hmac.cpp">
+      <Filter>Auth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Auth\md5.c">
+      <Filter>Auth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Auth\Sha1.cpp">
+      <Filter>Auth</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\ServiceWin32.cpp" />
+    <ClCompile Include="..\..\src\shared\Threading.cpp" />
+    <ClCompile Include="..\..\src\shared\Database\SqlPreparedStatement.cpp">
+      <Filter>Database</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Network\PacketBuffer.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Network\Socket.cpp">
+      <Filter>Network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Module\game_net_register.cpp">
+      <Filter>Module</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Common.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\lua\CustomLuaScript.cpp">
+      <Filter>lua</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lapi.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lauxlib.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lbaselib.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lcode.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ldblib.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ldebug.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ldo.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ldump.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lfunc.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lgc.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\linit.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\liolib.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\llex.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lmathlib.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lmem.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\loadlib.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lobject.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lopcodes.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\loslib.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lparser.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lstate.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lstring.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lstrlib.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ltable.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ltablib.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\ltm.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lua.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lundump.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lvm.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\lzio.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\3rd\lua-5.1.4\src\print.c">
+      <Filter>lua_src</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\shared\Config\ConfigLua.cpp">
+      <Filter>Config</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\shared\Database\Database.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Database\DatabaseEnv.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Database\DatabaseImpl.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Database\DatabaseMysql.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Database\Field.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Database\QueryResult.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Database\QueryResultMysql.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Database\SqlDelayThread.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Database\SqlOperations.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Database\SQLStorage.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Database\SQLStorageImpl.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Database\DBCFileLoader.h">
+      <Filter>Database\DataStores</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Database\DBCStore.h">
+      <Filter>Database\DataStores</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Log.h">
+      <Filter>Log</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\ByteBuffer.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Errors.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\ProgressBar.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Timer.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Util.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Config\Config.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Auth\AuthCrypt.h">
+      <Filter>Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Auth\BigNumber.h">
+      <Filter>Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Auth\Hmac.h">
+      <Filter>Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Auth\md5.h">
+      <Filter>Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Auth\Sha1.h">
+      <Filter>Auth</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\revision_sql.h" />
+    <ClInclude Include="..\..\src\shared\ServiceWin32.h" />
+    <ClInclude Include="..\..\src\shared\Threading.h" />
+    <ClInclude Include="..\..\src\shared\Database\SqlPreparedStatement.h">
+      <Filter>Database</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Network\Listener.hpp">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Network\NetworkThread.hpp">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Network\PacketBuffer.hpp">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Network\Socket.hpp">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Network\net_param.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Module\game_net_register.h">
+      <Filter>Module</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Module\jxsession.h">
+      <Filter>Module</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Module\module_manager-interface.h">
+      <Filter>Module</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Module\module-interface.h">
+      <Filter>Module</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Include\value_def.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\bm_prot.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\protocol_def.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\waprotocol\wa_alliance_prot.h">
+      <Filter>Protocol\waprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\waprotocol\wa_chat_rot.h">
+      <Filter>Protocol\waprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\waprotocol\wa_common_rot.h">
+      <Filter>Protocol\waprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\waprotocol\wa_mail_prot.h">
+      <Filter>Protocol\waprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\waprotocol\wa_rank_prot.h">
+      <Filter>Protocol\waprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_activity_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_alliance_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_battle_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_boom_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_building_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_chapter_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_chat_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_city_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_event_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_famous_city_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_general_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_item_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_mail_protocol.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_processor_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_produce_item_add_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_rank_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_role_attr_add_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_role_attr_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_role_equip_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_role_init_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_role_ordnance_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_role_skill_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_scheme_develop_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_shop_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_soldier_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_task_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_test_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\cs_wartech_prot.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\userprotocol\login_protocol.h">
+      <Filter>Protocol\userprotocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\ss_opcodes.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Network\connecter.hpp">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Network\NetDef.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\ss_protocol_def.h" />
+    <ClInclude Include="..\..\src\shared\Common.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\cs_opcodes.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Network\WorldPacket.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Network\BaseSession.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Network\BasePlayer.h">
+      <Filter>Network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Config\DefaultDef.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\lua\CustomLuaClass.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\lua\CustomLuaScript.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\lua\lua_include.h">
+      <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lapi.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lauxlib.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lcode.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\ldebug.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\ldo.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lfunc.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lgc.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\llex.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\llimits.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lmem.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lobject.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lopcodes.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lparser.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lstate.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lstring.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\ltable.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\ltm.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lua.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\luaconf.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lualib.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lundump.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lvm.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\3rd\lua-5.1.4\src\lzio.h">
+      <Filter>lua_src</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Config\ConfigLua.h">
+      <Filter>Config</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Module\MemoryTest.h">
+      <Filter>Util</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\DBCEnums.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\PlayerDef.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\ServerDef.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\SharedDefines.h">
+      <Filter>Protocol</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\cs_protocol_def.h">
+      <Filter>Protocol\reference%28no used%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\reserved_protocol_def.h">
+      <Filter>Protocol\reference%28no used%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\wa_protocol_def.h">
+      <Filter>Protocol\reference%28no used%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\rmi_cmd_def.h">
+      <Filter>Protocol\reference%28no used%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\ms_logic_prot.h">
+      <Filter>Protocol\reference%28no used%29</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\shared\Protocol\cs_global_protocol_def.h">
+      <Filter>Protocol\reference%28no used%29</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="..\..\src\shared\revision.h" />
+    <CustomBuild Include="..\..\src\shared\SystemConfig.h.in" />
+  </ItemGroup>
+</Project>

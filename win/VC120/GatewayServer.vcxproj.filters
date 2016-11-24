@@ -1,0 +1,117 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="network">
+      <UniqueIdentifier>{85ee4aee-85b6-43a0-a4bd-71ed428a5d96}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="global">
+      <UniqueIdentifier>{2de5da40-6861-4367-aa3f-1a2beb189981}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="common">
+      <UniqueIdentifier>{bfd302ce-34aa-45eb-b4ff-257108caaa6c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="..\..\src\GatewayServer\Main.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GatewayServer\network\GatewaySession.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GatewayServer\network\GatewaySocket.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GatewayServer\network\LogicSocket.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GatewayServer\CliRunnable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GatewayServer\GatewayRunnable.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GatewayServer\network\LogicSession.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GatewayServer\Opcodes_g.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GatewayServer\global\ConfigMgr.cpp">
+      <Filter>global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GatewayServer\gateway.cpp">
+      <Filter>global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GatewayServer\global\SessionMgr.cpp">
+      <Filter>global</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GatewayServer\network\SessionFilter.cpp">
+      <Filter>network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\..\src\GatewayServer\MasterGateway.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="..\..\src\GatewayServer\MaNGOSsoap.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\soapH.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\soapStub.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\MasterGateway.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\network\GatewaySession.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\network\GatewaySocket.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\network\LogicSocket.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\CliRunnable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\GatewayRunnable.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\network\LogicSession.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\Opcodes_g.h">
+      <Filter>network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\global\ConfigMgr.h">
+      <Filter>global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\gateway.h">
+      <Filter>global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\global\SessionMgr.h">
+      <Filter>global</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\common\GatewayDef.h">
+      <Filter>common</Filter>
+    </ClInclude>
+    <ClInclude Include="..\..\src\GatewayServer\network\SessionFilter.h">
+      <Filter>network</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
