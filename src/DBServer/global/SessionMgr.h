@@ -37,7 +37,7 @@ public:
 	int32 GetQueuedSessionPos(DBServerSession*);
 
 	//get
-	
+
 	uint32 GetActiveAndQueuedSessionCount() const;
 	uint32 GetActiveSessionCount() const;
 	uint32 GetMaxActiveSessionCount() const { return m_maxActiveSessionCount; }
@@ -51,7 +51,7 @@ private:
 	void AddSession_(DBServerSession* s);
 
 private:
-	//先更新到添加队列，再次心跳时再添加取服务器列表
+	//先更新到添加队列，再次心跳时再添加取用户列表
 	std::mutex m_sessionAddQueueLock;
 	std::deque<DBServerSession *> m_sessionAddQueue;
 
